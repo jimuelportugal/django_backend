@@ -1,6 +1,4 @@
 from django.shortcuts import render
-
-from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -15,22 +13,22 @@ class BookListView(ListView):
     template_name = 'myapp/book_list.html'
     context_object_name = 'books'
 
-class BookDetailview(DetailView):
+class BookDetailView(DetailView):
     model = Book
     template_name = 'myapp/book_detail.html'
     context_object_name = 'book'
 
 class BookCreateView(CreateView):
     model = Book
+    fields = ['title', 'author', 'description', 'published_date', 'isbn', 'image']
     template_name = 'myapp/book_form.html'
-    fields = ['title', 'author']
-    success_url = reverse_lazy('book_list')
+    success_url = '/books/'
 
 class BookUpdateView(UpdateView):
     model = Book
+    fields = ['title', 'author', 'description', 'published_date', 'isbn', 'image']
     template_name = 'myapp/book_form.html'
-    fields = ['title', 'author']
-    success_url = reverse_lazy('book_list')
+    success_url = '/books/' 
 
 class BookDeleteView(DeleteView):
     model = Book
