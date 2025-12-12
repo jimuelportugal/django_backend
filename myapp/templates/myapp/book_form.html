@@ -1,0 +1,13 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}{{ view.action|default:"Add" }} Book{% endblock %}
+
+{% block content %}
+        <h1 class="mb-4">{{ view.action|default:"Add" }} Book</h1>
+    <form method="post" class="needs-validation">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">{{ view.action|default:"Add" }}</button>
+        <a href="{% url 'book_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}
