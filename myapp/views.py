@@ -14,7 +14,7 @@ from .forms import BookForm
 
 def home_view(request):
     """Renders the welcome page. Stays namespaced: myapp/templates/myapp/home.html"""
-    return render(request, 'myapp/home.html')
+    return render(request, 'home.html')
 
 class BookListView(ListView):
     """Displays the list of books (the 'view books' page)."""

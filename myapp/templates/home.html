@@ -1,15 +1,15 @@
-{% extends "myapp/base.html" %}
+{% extends "base.html" %}
 
 {% block title %}Welcome to the Archive Library{% endblock %}
 
 {% block content %}
     <div style="text-align: center; padding: 50px; background-color: #f4f4f9;">
         <h1>Welcome to the Archive Library</h1>
-        <p>Your simplified digital catalog for computer science resources.</p>
+        <p>This resource is designed to be the definitive list of essential programming books.</p>
         <br>
-        <a href="{% url 'books_list' %}" 
+        <!-- <a href="{% url 'books_list' %}" 
            style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 1.2em;">
             View Books
-        </a>
+        </a> -->
     </div>
 {% endblock %}

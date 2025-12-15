@@ -1,10 +1,21 @@
-{% extends "myapp/base.html" %}
+{% extends "base.html" %}
 
 {% block title %}
     {% if form.instance.pk %}Edit Book{% else %}Add Book{% endif %}
 {% endblock %}
 
 {% block content %}
+<style>
+    .cancell {
+        margin: 0 5px;
+        color: #ccc;
+        background-color: #dc3545;
+        padding: 8px 10px;
+        margin-left: 10px;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+</style>
     <h1>{% if form.instance.pk %}Edit Book: {{ form.instance.title }}{% else %}Add New Book{% endif %}</h1>
     
     <form method="post" style="max-width: 500px; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
@@ -15,6 +26,6 @@
         <button type="submit" style="background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">
             Save
         </button>
-        <a href="{% url 'books_list' %}" style="margin-left: 10px; color: #6c757d;">Cancel</a>
+        <a class="cancell" href="{% url 'books_list' %}">Cancel</a>
     </form>
 {% endblock %}
