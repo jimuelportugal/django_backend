@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'djangoproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'defaultdb',
+        'USER': 'avnadmin',
+        'PASSWORD': 'AVNS_WXCl_aTlVeyoAIIAd0S   ',
+        'HOST':'mysql-1586fd5a-gbox-ed0a.d.aivencloud.com',
+        'PORT':'23418',
     }
 }
 
