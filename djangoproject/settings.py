@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'defaultdb',
         'USER': 'avnadmin',
-        'PASSWORD': 'AVNS_WXCl_aTlVeyoAIIAd0S   ',
+        'PASSWORD': 'AVNS_WXCl_aTlVeyoAIIAd0S',
         'HOST':'mysql-1586fd5a-gbox-ed0a.d.aivencloud.com',
         'PORT':'23418',
     }
@@ -112,11 +112,8 @@ DATABASES = {
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
@@ -126,4 +123,3 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-AUTH_USER_MODEL = 'myapp.User'
