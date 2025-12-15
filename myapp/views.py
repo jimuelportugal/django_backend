@@ -1,19 +1,40 @@
-# jimuelportugal/django_backend/django_backend-948c10cabed393f457a49aefbd8b1711d45732b7/myapp/views.py
+# jimuelportugal/django_backend/django_backend-3d58b6cfb12f4c38ac20f9a47212cd341c7d372e/myapp/views.py
 
-from rest_framework import viewsets
-from rest_framework.permissions import AllowAny # Explicitly allow unauthenticated access
+# ... (Existing imports)
 from .models import Book
 from .serializers import BookSerializer
+from .forms import BookForm 
 
-# --- Books Views (Public CRUD) ---
+# --- HTML Views for the Website ---
 
-class BookViewSet(viewsets.ModelViewSet):
-    """
-    Handles standard CRUD operations for Books (Create, Retrieve, Update, Delete).
-    This API is now publicly accessible (unauthenticated).
-    """
-    queryset = Book.objects.all().order_by('book_id')
-    serializer_class = BookSerializer
-    permission_classes = [AllowAny]
+def home_view(request):
+    """Renders the welcome page. Stays namespaced: myapp/templates/myapp/home.html"""
+    return render(request, 'myapp/home.html')
 
-    # All user-dependent custom actions (request_book, cancel_request, etc.) are removed.
+class BookListView(ListView):
+    """Displays the list of books (the 'view books' page)."""
+    model = Book
+    template_name = 'book_list.html' # <--- CHANGED to root path
+    context_object_name = 'books'
+    
+class BookCreateView(CreateView):
+    """Handles adding a new book."""
+    model = Book
+    form_class = BookForm
+    template_name = 'book_form.html' # <--- CHANGED to root path
+    success_url = reverse_lazy('books_list') 
+
+class BookUpdateView(UpdateView):
+    """Handles editing an existing book."""
+    model = Book
+    form_class = BookForm
+    template_name = 'book_form.html' # <--- CHANGED to root path
+    success_url = reverse_lazy('books_list')
+
+class BookDeleteView(DeleteView):
+    """Handles deleting a book."""
+    model = Book
+    template_name = 'book_confirm_delete.html' # <--- CHANGED to root path
+    success_url = reverse_lazy('books_list')
+
+# ... (Rest of BookViewSet)

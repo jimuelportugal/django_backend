@@ -1,0 +1,20 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}
+    {% if form.instance.pk %}Edit Book{% else %}Add Book{% endif %}
+{% endblock %}
+
+{% block content %}
+    <h1>{% if form.instance.pk %}Edit Book: {{ form.instance.title }}{% else %}Add New Book{% endif %}</h1>
+    
+    <form method="post" style="max-width: 500px; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+
+        <button type="submit" style="background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">
+            Save
+        </button>
+        <a href="{% url 'books_list' %}" style="margin-left: 10px; color: #6c757d;">Cancel</a>
+    </form>
+{% endblock %}

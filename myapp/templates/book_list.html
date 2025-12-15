@@ -1,0 +1,41 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}Book List{% endblock %}
+
+{% block content %}
+    <h1>Available Books</h1>
+    
+    <a href="{% url 'book_add' %}" 
+       style="background-color: #28a745; color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; margin-bottom: 20px; display: inline-block;">
+        + Add New Book
+    </a>
+
+    <table border="1" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+            <tr style="background-color: #f8f9fa;">
+                <th style="padding: 10px;">ID</th>
+                <th style="padding: 10px;">Title</th>
+                <th style="padding: 10px;">Image Link</th>
+                <th style="padding: 10px;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td style="padding: 10px; text-align: center;">{{ book.book_id }}</td>
+                    <td style="padding: 10px;">{{ book.title }}</td>
+                    <td style="padding: 10px; font-size: 0.9em;">{{ book.image_link }}</td>
+                    <td style="padding: 10px; text-align: center;">
+                        <a href="{% url 'book_edit' pk=book.pk %}" style="color: blue; margin-right: 5px;">Edit</a>
+                        |
+                        <a href="{% url 'book_delete' pk=book.pk %}" style="color: red; margin-left: 5px;">Delete</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4" style="text-align: center; padding: 10px;">No books found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
