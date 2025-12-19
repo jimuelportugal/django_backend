@@ -1,5 +1,4 @@
-{% extends "base.html" %} {% block title %}Delete Book{% endblock %} {% block
-content %}
+{% extends "base.html" %} {% block title %}Delete Book{% endblock %} {% block content %}
 <h1 class="page_title">Delete Book</h1>
 <p style="color: #dc3545; font-weight: bold">
   Are you sure you want to delete the book: "{{ object.title }}"?
@@ -7,21 +6,8 @@ content %}
 
 <form method="post">
   {% csrf_token %}
-  <button class="submit"
-    type="submit"
-    style="
-      background-color: #dc3545;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    "
-  >
-    Yes, Delete
-  </button>
-  <a href="{% url 'books_list' %}" style="margin-left: 10px; color: #6c757d"
-    >Cancel</a
+  <button class="submit" type="submit">Yes, Delete</button>
+  <a class="cancell" href="{% url 'books_list' %}">Cancel</a
   >
 </form>
 {% endblock %}

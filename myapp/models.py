@@ -1,5 +1,3 @@
-# jimuelportugal/django_backend/django_backend-948c10cabed393f457a49aefbd8b1711d45732b7/myapp/models.py
-
 from django.db import models
 from django.utils import timezone
 

@@ -8,7 +8,7 @@
   --accent-hover: #2563eb;
   --accent-yellow: #f59e0b;
   --accent-red: #ef4444;
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
 }
 
 * { box-sizing: border-box; }
@@ -90,8 +90,89 @@ nav {
   margin-bottom: 40px;
 }
 
-.hero h1 { font-size: 3rem; margin-bottom: 20px; color: white; }
-.hero p { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 30px auto; }
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-primary {
+  background-color: var(--accent-blue);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  border: 1px solid #334155;
+  color: white;
+  padding: 11px 23px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.info-card {
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #334155;
+}
+
+.info-card .icon { font-size: 2.5rem; margin-bottom: 15px; }
+
+/* Search UI Styling */
+.search-container {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.search-form input {
+    flex-grow: 1;
+    padding: 12px 16px;
+    background-color: var(--card-bg);
+    border: 1px solid #334155;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+}
+
+.search-form input:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+}
 
 /* Book List / Grid */
 .book-grid {
@@ -122,13 +203,46 @@ nav {
   text-align: center;
 }
 
+.book-details h3 {
+  font-size: 1rem;
+  margin: 0 0 1.5rem 0;
+  color: var(--text-primary);
+  min-height: 2.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .book-actions {
   display: flex;
   gap: 10px;
-  margin-top: 15px;
 }
 
-/* Forms and Centering */
+.book-actions a {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.edit-btn { background-color: var(--accent-yellow); color: #000; }
+.delete-btn { background-color: var(--accent-red); color: white; }
+
+/* Add Book / Management Styles */
+.book_add {
+    display: inline-block;
+    background-color: var(--accent-blue);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Forms and Button Styles (Save/Cancel) */
 .book_content {
   display: flex;
   justify-content: center;
@@ -151,6 +265,7 @@ nav {
     margin-bottom: 25px;
     font-size: 1.5rem;
     color: white;
+    text-align: center;
 }
 
 .form p {
@@ -172,9 +287,9 @@ nav {
   border-radius: 8px;
   color: white;
   font-size: 1rem;
+  margin-bottom: 10px;
 }
 
-/* THE BUTTONS - FIXING SAVE AND CANCEL */
 .submit {
   width: 100%;
   padding: 14px;
@@ -207,22 +322,6 @@ nav {
 .cancell:hover {
   color: var(--accent-red);
 }
-
-/* Action Buttons for Cards */
-.edit-btn, .delete-btn, .btn-primary, .book_add {
-  padding: 10px 20px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.85rem;
-  text-align: center;
-  border: none;
-}
-
-.book_add { background-color: var(--accent-blue); color: white; display: inline-block; margin-bottom: 20px;}
-.edit-btn { background-color: var(--accent-yellow); color: #000; flex: 1; }
-.delete-btn { background-color: var(--accent-red); color: white; flex: 1; }
-.btn-primary { background-color: var(--accent-blue); color: white; }
 
 .footer {
   text-align: center;
