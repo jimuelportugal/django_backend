@@ -3,38 +3,89 @@ body {
   margin: 0;
   padding: 0;
   background-color: #282a36;
-  min-height: 900px;
+  min-height: 100vh;
 }
+
 .container {
-  width: 80%;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
 }
-h1 {
-  color: #343a40;
-  border-bottom: 2px solid #007bff;
-  padding-bottom: 10px;
-  margin-top: 0;
-}
+
 nav {
   background-color: #343746;
   padding: 10px 0;
 }
+
 nav a {
   color: white;
   padding: 10px 15px;
   text-decoration: none;
   font-weight: bold;
 }
+
 nav a:hover {
   background-color: #495057;
 }
+
 .page_title {
   color: white;
+  margin-bottom: 20px;
 }
 
+/* Center the form container */
+.book_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 100px);
+  margin: 0;
+}
+
+/* Form Styling */
+.form {
+  width: 100%;
+  max-width: 450px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.form h1 {
+  color: #333;
+  border: none;
+  text-align: center;
+  margin-top: 0;
+}
+
+.form p {
+  color: #333;
+}
+
+.submit {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.cancell {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #666;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+/* Book List Improvements */
 .book_add {
   background-color: #007bff;
   color: white;
@@ -45,85 +96,76 @@ nav a:hover {
   display: inline-block;
   font-weight: bold;
 }
+
 .book-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 300px));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
   margin-top: 20px;
 }
+
 .book-card {
-  height:300px;
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
+
 .book-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
 }
+
 .book-card img {
   width: 100%;
-  height: 70%;
-  object-fit: cover;
+  height: 280px;
+  object-fit: contain;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
 }
+
+.book-details {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .book-details h3 {
-  font-size: 1.1em;
-  margin: 0 0 10px 0;
-  color: #333;
-  min-height: 40px;
+  font-size: 1.1rem;
+  margin: 0 0 15px 0;
+  color: #222;
+  text-align: center;
+  min-height: 2.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .book-actions {
   display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+  gap: 8px;
 }
+
 .book-actions a {
-  flex-grow: 1;
+  flex: 1;
   text-align: center;
   padding: 8px 0;
   text-decoration: none;
-  border-radius: 4px;
-  font-size: 0.9em;
-  margin: 0 5px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  font-weight: bold;
 }
+
 .edit-btn {
   background-color: #ffc107;
   color: #212529;
 }
+
 .delete-btn {
   background-color: #dc3545;
   color: white;
-}
-
-.cancell {
-  margin: 0 5px;
-  color: #ccc;
-  background-color: #dc3545;
-  padding: 8px 10px;
-  margin-left: 10px;
-  text-decoration: none;
-  border-radius: 4px;
-}
-.submit {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.form {
-  max-width: 500px;
-  padding: 20px;
-  background-color: #004ba7;
-  border-radius: 5px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.book_content {
-  margin: 25% auto 20px auto;
-  /* background-color: #a73232; */
 }
