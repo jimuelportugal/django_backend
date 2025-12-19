@@ -1,15 +1,34 @@
 {% extends "base.html" %}
 
-{% block title %}Welcome to the Archive Library{% endblock %}
+{% block title %}Home | Programming Archive{% endblock %}
 
 {% block content %}
-    <div style="text-align: center; padding: 50px; background-color: #f4f4f9;">
-        <h1>Welcome to the Archive Library</h1>
-        <p>This resource is designed to be the definitive list of essential programming books.</p>
-        <br>
-        <!-- <a href="{% url 'books_list' %}" 
-           style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 1.2em;">
-            View Books
-        </a> -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Programming Book Archive</h1>
+        <p>A public management system for tracking programming books and technical resources.</p>
+        <div class="hero-actions">
+            <a href="{% url 'books_list' %}" class="btn-primary">Manage Books</a>
+            <a href="{% url 'book_add' %}" class="btn-secondary">Add New Entry</a>
+        </div>
     </div>
+</section>
+
+<section class="home-grid">
+    <div class="info-card">
+        <div class="icon">📖</div>
+        <h3>Book Collection</h3>
+        <p>This site serves as a central hub to list software development and coding literature.</p>
+    </div>
+    <div class="info-card">
+        <div class="icon">🔍</div>
+        <h3>Search & Filter</h3>
+        <p>Quickly locate any book using the built-in search functionality in the list view.</p>
+    </div>
+    <div class="info-card">
+        <div class="icon">🛠️</div>
+        <h3>Full CRUD Control</h3>
+        <p>Complete control to add new titles, update cover images, and remove entries.</p>
+    </div>
+</section>
 {% endblock %}

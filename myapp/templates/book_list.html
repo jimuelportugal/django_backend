@@ -1,10 +1,29 @@
-{% extends "base.html" %} {% block title %}Book Catalog{% endblock %} {% block content %}
-<h1 class="page_title">Book List</h1>
-<a class="book_add" href="{% url 'book_add' %}"> + Add New Book </a>
+{% extends "base.html" %} 
+{% block title %}Book Catalog{% endblock %} 
+{% block content %}
+
+<div class="header-section">
+  <h1 class="page_title">Resource Library</h1>
+  
+  <div class="search-container">
+    <form method="GET" action="{% url 'books_list' %}" class="search-form">
+      <input type="text" name="q" placeholder="Search books by title..." value="{{ search_query }}">
+      <button type="submit" class="btn-primary">Search</button>
+      {% if search_query %}
+        <a href="{% url 'books_list' %}" class="btn-secondary">Clear</a>
+      {% endif %}
+    </form>
+  </div>
+</div>
+
+<div class="action-bar">
+    <a class="book_add" href="{% url 'book_add' %}"> + Add New Book </a>
+</div>
+
 <div class="book-grid">
   {% for book in books %}
   <div class="book-card">
-    <img src="{{ book.image_link }}" alt="{{ book.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/250x200?text=No+Image';"/>
+    <img src="{{ book.image_link }}" alt="{{ book.title }}" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/250x350?text=No+Cover+Image';"/>
     <div class="book-details">
       <h3>{{ book.title }}</h3>
       <div class="book-actions">
@@ -14,7 +33,7 @@
     </div>
   </div>
   {% empty %}
-  <p style="grid-column: 1 / -1; text-align: center">No books found in the catalog.</p>
+  <p style="grid-column: 1 / -1; text-align: center">No books found matching your search.</p>
   {% endfor %}
 </div>
 {% endblock %}

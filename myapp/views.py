@@ -3,6 +3,7 @@ from rest_framework.permissions import AllowAny
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.db.models import Q
 from .models import Book
 from .serializers import BookSerializer
 from .forms import BookForm 
@@ -14,9 +15,18 @@ class BookListView(ListView):
     model = Book
     template_name = 'book_list.html'
     context_object_name = 'books'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        query = self.request.GET.get('q')
+        if query:
+            queryset = queryset.filter(Q(title__icontains=query))
+        return queryset
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = BookForm()
+        context['search_query'] = self.request.GET.get('q', '')
         return context
     
 class BookCreateView(CreateView):
